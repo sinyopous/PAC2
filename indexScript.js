@@ -10,14 +10,15 @@ function popPrompt() {
 
     let onePlusTwo = valueOne + valueTwo;
 
-    //---------------CHECK: PRIME AND EVEN-------------------
+    //-----------------CHECK: PRIME---------------------
+
     const primeNumbersList = [2, 3, 5, 7];
 
     let primeCheckValueOne = "";
 
     for (let i = 0; i < primeNumbersList.length; i++) {
       if (valueOne === primeNumbersList[i]) {
-        primeCheckValueOne = "primo";
+        primeCheckValueOne = "es primo";
         break;
       } else if (valueOne % primeNumbersList[i] === 0) {
         primeCheckValueOne = "no es primo";
@@ -26,7 +27,7 @@ function popPrompt() {
         primeCheckValueOne = "no es primo";
         break;
       } else {
-        primeCheckValueOne = "primo";
+        primeCheckValueOne = "es primo";
       }
     }
 
@@ -46,6 +47,8 @@ function popPrompt() {
         primeCheckValueTwo = "es primo";
       }
     }
+
+    //--------------------CHECK: EVEN------------------------
 
     let evenCheckValueOne = valueOne % 2;
     let evenCheckValueTwo = valueTwo % 2;
@@ -67,29 +70,53 @@ function popPrompt() {
     let valueOneToValueTwoNumbersList = [];
 
     if (valueOne < valueTwo) {
-      for (let i = valueOne + 1; i < valueTwo; i++) {
+      for (let i = valueOne + 1; i + 1 <= valueTwo; i++) {
         valueOneToValueTwoNumbersList.push(i);
       }
     }
 
-    let valueOneToValueTwoEvenNumbersList = [];
+    function evenPusher(value) {
+      return value % 2 == 0;
+    }
 
-    for (
-      let i = valueOneToValueTwoNumbersList[0];
-      i <= valueOneToValueTwoNumbersList.length;
-      i++
-    ) {
-      if (i % 2 === 0) {
-        valueOneToValueTwoEvenNumbersList.push(i);
+    let valueOneToValueTwoEvenNumbersList =
+      valueOneToValueTwoNumbersList.filter(evenPusher);
+
+    //console.log(valueOneToValueTwoNumbersList);
+    //console.log(valueOneToValueTwoEvenNumbersList);
+
+    //-----------------CHECK: VALUEONE > VALUETWO----------------
+
+    let valueTwoToValueOneNumbersList = [];
+
+    if (valueOne > valueTwo) {
+      for (let i = valueOne - 1; i > valueTwo; i--) {
+        valueTwoToValueOneNumbersList.push(i);
       }
     }
 
-    console.log(valueOneToValueTwoNumbersList);
-    console.log(valueOneToValueTwoEvenNumbersList);
+    function evenDeleter(value) {
+      return value % 2 != 0;
+    }
 
-    alert(
-      `La suma es: ${onePlusTwo}\n\nEl ${valueOne} ${primeCheckValueOne} i el ${valueTwo} ${primeCheckValueTwo}\nEl ${valueOne} ${evenCheckValueOne} i el ${valueTwo} ${evenCheckValueTwo}\n\n${valueOneToValueTwoEvenNumbersList}`
-    );
+    let valueTwoToValueOneNoEvenNumbersList =
+      valueTwoToValueOneNumbersList.filter(evenDeleter);
+
+    //-----------------------ALERT MESSAGES--------------------------
+
+    if (valueOne < valueTwo) {
+      alert(
+        `La suma es: ${onePlusTwo}\n\nEl ${valueOne} ${primeCheckValueOne} i el ${valueTwo} ${primeCheckValueTwo}\nEl ${valueOne} ${evenCheckValueOne} i el ${valueTwo} ${evenCheckValueTwo}\n\n${valueOneToValueTwoEvenNumbersList}`
+      );
+    } else if (valueOne > valueTwo) {
+      alert(
+        `La suma es: ${onePlusTwo}\n\nEl ${valueOne} ${primeCheckValueOne} i el ${valueTwo} ${primeCheckValueTwo}\nEl ${valueOne} ${evenCheckValueOne} i el ${valueTwo} ${evenCheckValueTwo}\n\n${valueTwoToValueOneNoEvenNumbersList}`
+      );
+    } else if (valueOne === valueTwo) {
+      alert(
+        `La suma es: ${onePlusTwo}\n\nEl ${valueOne} ${primeCheckValueOne} i el ${valueTwo} ${primeCheckValueTwo}\nEl ${valueOne} ${evenCheckValueOne} i el ${valueTwo} ${evenCheckValueTwo}\n\n${valueOne}`
+      );
+    }
   } else {
     alert("numero invalido");
   }
