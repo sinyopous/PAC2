@@ -10,43 +10,98 @@ function popPrompt() {
 
     let onePlusTwo = valueOne + valueTwo;
 
-    //-----------------CHECK: PRIME---------------------
+    //-----------------CHECK: PRIME 1.0 (ONLY WORKS WITH NUMBERS UNDER 50)---------------------
 
-    const primeNumbersList = [2, 3, 5, 7];
+    // const primeNumbersList = [2, 3, 5, 7];
 
-    let primeCheckValueOne = "";
+    // let primeCheckValueOne = "";
 
-    for (let i = 0; i < primeNumbersList.length; i++) {
-      if (valueOne === primeNumbersList[i]) {
-        primeCheckValueOne = "es primo";
-        break;
-      } else if (valueOne % primeNumbersList[i] === 0) {
+    // for (let i = 0; i < primeNumbersList.length; i++) {
+    //   if (valueOne === primeNumbersList[i]) {
+    //     primeCheckValueOne = "es primo";
+    //     break;
+    //   } else if (valueOne % primeNumbersList[i] === 0) {
+    //     primeCheckValueOne = "no es primo";
+    //     break;
+    //   } else if (valueOne === 1) {
+    //     primeCheckValueOne = "no es primo";
+    //     break;
+    //   } else {
+    //     primeCheckValueOne = "es primo";
+    //   }
+    // }
+
+    // let primeCheckValueTwo = "";
+
+    // for (let i = 0; i < primeNumbersList.length; i++) {
+    //   if (valueTwo === primeNumbersList[i]) {
+    //     primeCheckValueTwo = "es primo";
+    //     break;
+    //   } else if (valueTwo % primeNumbersList[i] === 0) {
+    //     primeCheckValueTwo = "no es primo";
+    //     break;
+    //   } else if (valueTwo === 1) {
+    //     primeCheckValueTwo = "no es primo";
+    //     break;
+    //   } else {
+    //     primeCheckValueTwo = "es primo";
+    //   }
+    // }
+
+
+    //----------------CHECK: PRIME 2.0(DONT WORK WITH NUMBER 1)--------------------
+
+    // let primeCheckValueOne = "";
+
+    // for (let i = 2; i <= valueOne; i++) {
+    //   if ((valueOne % i === 0) && (valueOne === i)) {
+    //     primeCheckValueOne = "es primo";
+    //   }
+    //   else if ((valueOne % i === 0) && (valueOne !== i)) {
+    //     primeCheckValueOne = "no es primo";
+    //     break;
+    //   }
+    // }
+
+    // let primeCheckValueTwo = "";
+
+    // for (let i = 2; i <= valueTwo; i++) {
+    //   if ((valueTwo % i === 0) && (valueTwo === i)) {
+    //     primeCheckValueTwo = "es primo";
+    //   }
+    //   else if ((valueTwo % i === 0) && (valueTwo !== i)) {
+    //     primeCheckValueTwo = "no es primo";
+    //     break;
+    //   }
+    // }
+
+
+    //------------------CHECK PRIME 2.1(SIMPLIFICATION + SPECIAL IF FOR NUMBER 1)---------------------
+
+    let primeCheckValueOne = "es primo";
+
+    for (let i = 2; i <= valueOne; i++) {
+      if ((valueOne % i === 0) && (valueOne !== i)) {
         primeCheckValueOne = "no es primo";
         break;
-      } else if (valueOne === 1) {
-        primeCheckValueOne = "no es primo";
-        break;
-      } else {
-        primeCheckValueOne = "es primo";
       }
     }
+    if (valueOne === 1) {
+      primeCheckValueOne = "no es primo";
+    }
+    
+    let primeCheckValueTwo = "es primo";
 
-    let primeCheckValueTwo = "";
-
-    for (let i = 0; i < primeNumbersList.length; i++) {
-      if (valueTwo === primeNumbersList[i]) {
-        primeCheckValueTwo = "es primo";
-        break;
-      } else if (valueTwo % primeNumbersList[i] === 0) {
+    for (let i = 2; i <= valueTwo; i++) {
+      if ((valueTwo % i === 0) && (valueTwo !== i)) {
         primeCheckValueTwo = "no es primo";
         break;
-      } else if (valueTwo === 1) {
-        primeCheckValueTwo = "no es primo";
-        break;
-      } else {
-        primeCheckValueTwo = "es primo";
       }
     }
+    if (valueTwo === 1) {
+      primeCheckValueTwo = "no es primo";
+    }
+
 
     //--------------------CHECK: EVEN------------------------
 
@@ -64,6 +119,7 @@ function popPrompt() {
     } else {
       evenCheckValueTwo = "es impar";
     }
+    
 
     //----------------CHECK: VALUEONE < VALUETWO-------------------
 
