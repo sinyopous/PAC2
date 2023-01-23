@@ -48,7 +48,6 @@ function popPrompt() {
     //   }
     // }
 
-
     //----------------CHECK: PRIME 2.0(DONT WORK WITH NUMBER 1)--------------------
 
     // let primeCheckValueOne = "";
@@ -75,33 +74,59 @@ function popPrompt() {
     //   }
     // }
 
-
     //------------------CHECK PRIME 2.1(SIMPLIFICATION + SPECIAL IF FOR NUMBER 1)---------------------
+
+    // let primeCheckValueOne = "es primo";
+
+    // for (let i = 2; i <= valueOne; i++) {
+    //   if ((valueOne % i === 0) && (valueOne !== i)) {
+    //     primeCheckValueOne = "no es primo";
+    //     break;
+    //   }
+    // }
+    // if (valueOne === 1) {
+    //   primeCheckValueOne = "no es primo";
+    // }
+
+    // let primeCheckValueTwo = "es primo";
+
+    // for (let i = 2; i <= valueTwo; i++) {
+    //   if ((valueTwo % i === 0) && (valueTwo !== i)) {
+    //     primeCheckValueTwo = "no es primo";
+    //     break;
+    //   }
+    // }
+    // if (valueTwo === 1) {
+    //   primeCheckValueTwo = "no es primo";
+    // }
+
+    //------------------CHEK PRIME 2.2(FOR LOOP CORRECTION)---------------------------------
 
     let primeCheckValueOne = "es primo";
 
-    for (let i = 2; i <= valueOne; i++) {
-      if ((valueOne % i === 0) && (valueOne !== i)) {
+    for (let i = 2; i < valueOne; i++) {
+      if (valueOne % i === 0) {
         primeCheckValueOne = "no es primo";
         break;
       }
     }
+
     if (valueOne === 1) {
       primeCheckValueOne = "no es primo";
     }
-    
+
     let primeCheckValueTwo = "es primo";
 
-    for (let i = 2; i <= valueTwo; i++) {
-      if ((valueTwo % i === 0) && (valueTwo !== i)) {
+    for (let i = 2; i < valueTwo; i++) {
+      if (valueTwo % i === 0) {
         primeCheckValueTwo = "no es primo";
         break;
       }
     }
+
     if (valueTwo === 1) {
       primeCheckValueTwo = "no es primo";
     }
-
 
     //--------------------CHECK: EVEN------------------------
 
@@ -119,7 +144,6 @@ function popPrompt() {
     } else {
       evenCheckValueTwo = "es impar";
     }
-    
 
     //----------------CHECK: VALUEONE < VALUETWO-------------------
 
